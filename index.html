@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard - cuentas por pagar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="/assets/styles.css">
+
+    <style>
+    .table-gral{
+      border: none;
+      border-collapse: collapse;
+      width:2359pt;
+    }
+
+    .encabezado{
+      padding:0px;
+      color:black;
+      font-size:15px;
+      font-weight:400;
+      font-style:normal;
+      text-decoration:none;
+      font-family:Arial, sans-serif;
+      text-align:general;
+      vertical-align:middle;
+      border:none;
+      height:20.25pt;
+      width:148pt;
+    }
+
+    td {
+      padding:0px;
+      color:black;
+      font-size:16px;
+      font-weight:700;
+      font-style:normal;
+      text-decoration:none;
+      font-family:Calibri, sans-serif;
+      text-align:center;
+      vertical-align:middle;
+      border:none;
+      border-top:1.0pt solid black;
+      border-right:1.0pt solid black;
+      border-bottom:1.0pt solid black;
+      border-left:1.0pt solid black;
+    }
+
+    .font-cont {
+      font-size:15px;
+      font-weight:400;
+      font-style:normal; 
+      text-decoration:none;
+    }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Dashboard - cuentas por pagar</h1>
+
+        <div class="container mt-5 ">
+
+            <div class="row ">
+                <div class="col col-md-3 ">
+                    <div id="slider" class="carousel slide text-center" data-ride="carousel">
+                      <div class="carousel-inner ">
+                      </div>
+                      <a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Anterior</span>
+                      </a>
+                      <a class="carousel-control-next" href="#slider" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Siguiente</span>
+                      </a>
+                    </div>
+                  </div>
+            </div>
+            <div id="slider" class="carousel slide text-center" data-ride="carousel">
+                <div class="carousel-inner">
+                </div>
+                <a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#slider" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Siguiente</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-body shadow card">
+                <div id="chart"></div>
+                <div class="text-center mb-4 mt-4">
+                    <button id="botonDatos1" class="btn btn-primary" onclick="botonDatosClick(0)">IWS </button>
+                    <button id="botonDatos2" class="btn btn-primary" onclick="botonDatosClick(1)">México</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-2>
+                <div id="tablaDatos">
+                    <p>&nbsp;</p>
+                <table class="table-gral">
+                    <tbody>
+                        <tr>
+                            <td class="encabezado"><br></td>
+                            <td colspan="6" class="titulo" style="background:#00B0F0;  width:673pt;">IWS MEXICO</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0px;color:black;font-size:16px;font-weight:400;font-style:normal;text-decoration:none;font-family:Arial, sans-serif;text-align:center;vertical-align:middle;border:none;height:37.5pt;"><br></td>
+                            <td style="background:#00B0F0;  width:150pt;">CONSULTING</td>
+                            <td style="background:#00B0F0;  width:150pt;">CONNECTIVE</td>
+                            <td style="background:#00B0F0;  width:150pt;">SERVICE</td>
+                            <td style="background:#00B0F0;  width:150pt;">CLOUD</td>
+                            <td style="background:#00B0F0;  width:150pt;">REDINET MX</td>
+                            <td style="background:#00B0F0;  width:150pt;">TALENTO HUMANO</td>
+                            <td style="background:#FFC000;">COLOMBIA</td>
+                            <td style="background:#C6E0B4;">COSTA RICA</td>
+                            <td style="background:#C9C9C9;">CHILE</td>
+                            <td style="background:#D4ED2D;">PANAMA</td>
+                            <td style="background:#FF9900;">PERU</td>
+                            <td style="background:#E6AAE6;">ECUADOR</td>
+                            <td style="background:#C2F2E9;">GUATEMALA</td>
+                            <td style="background:#C2F2E9;width:106pt;">REP. DOMINICANA</td>
+                            <td style="background:#83C5E6;">HONDURAS</td>
+                            <td style="background:#C9F7B0;">SALVADOR</td>
+                            <td style="background:yellow;">EEUU</td>
+                            <td style="background:#B41BCC;">BRASIL</td>
+                            <td style="background:#F8CBAD;">TOTALES/MES</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">A&Ntilde;O 2021</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;4,217.30</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;"><br></td>
+                            <td class="font-cont" style="background:#E7E6E6;"><br></td>
+                            <td class="font-cont" style="background:#E7E6E6;"><br></td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;"><br></td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#F8CBAD;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;4,217.30</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">A&Ntilde;O 2022</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;37,119.54</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;"><br></td>
+                            <td class="font-cont" style="background:#E7E6E6;"><br></td>
+                            <td class="font-cont" style="background:#E7E6E6;"><br></td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 26,324.51</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2,775.37</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;454.43</td>
+                            <td class="font-cont" style="background:#E7E6E6;"><br></td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#F8CBAD;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;66,673.85</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">ENERO 2023</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;167.98</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 881.40</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;123.90</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;177.41</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 5,001.50</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#F8CBAD;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;6,352.19</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">FEBRERO 2023</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1,346.24</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;988.24</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;41.40</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;177.41</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#F8CBAD;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2,553.29</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">MARZO 2023</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;22.27</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;371.05</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;41.40</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;177.41</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#F8CBAD;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;612.13</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">ABRIL 2023</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;234.76</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;622.30</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;41.40</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;325.25</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#F8CBAD;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1,223.71</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">MAYO 2023</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2,330.12</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 48.77</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;672.02</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;260.69</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;325.25</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#F8CBAD;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3,636.85</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">JUNIO 2023</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;587.42</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 46.32</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4,111.45</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;622.02</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;719.49</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#F8CBAD;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;6,086.70</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">JULIO 2023</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;236.74</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;11,693.00</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;109.87</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 54.66</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1,692.02</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;522.37</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#F8CBAD;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;14,308.66</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">AGOSTO 2023</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1,974.37</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;199.79</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4,285.48</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;721.38</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2,767.34</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;522.37</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#F8CBAD;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;10,470.73</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">SETIEMBRE 2023</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;114,311.48</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;6,125.39</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3,680.43</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 102.94</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 8,667.14</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4,845.71</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;522.37</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2,799.14</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#F8CBAD;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 141,054.60</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">OCTUBRE 2023</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;100,651.77</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 18,265.29</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 14,299.07</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 58,837.32</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 8,702.10</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2,289.94</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;522.37</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4,379.93</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1,907.02</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#F8CBAD;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 209,854.81</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">NOVIEMBRE 2023</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;124,499.67</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 46,625.31</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 102,196.91</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 42,021.02</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;16,093.07</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;54,213.93</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;901.83</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 8,592.35</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;16,270.77</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;8,553.13</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#F8CBAD;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 419,967.99</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;">DICIEMBRE 2023</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;145,664.51</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 266,232.76</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 65,911.19</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;123,652.59</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;18,061.74</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 6,731.67</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1,373.37</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;12,170.78</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 7,482.12</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;12,629.84</td>
+                            <td class="font-cont">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;7,775.41</td>
+                            <td class="font-cont" style="background:#E7E6E6;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td class="font-cont" style="background:#F8CBAD;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 667,685.98</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none;"><br></td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 533,196.19</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; 11,693.00</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;337,248.75</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;214,966.44</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;233,946.86</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; 58,131.06</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;71,687.61</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;6,266.90</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; 25,143.06</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; 10,281.26</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; 35,809.13</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;16,328.54</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td style="background:#C9F7B0;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1,554,698.80</td>
+                        </tr>
+                        <tr>
+                            <td style="border:none;"></td>
+                            <td style="border: none;"></td>
+                            <td style="border: none;"></td>
+                            <td style="border: none;"></td>
+                            <td style="border: none;"><br></td>
+                            <td style="border: none;"><br></td>
+                            <td style="border: none;"><br></td>
+                            <td style="border: none;"></td>
+                            <td style="border: none;"></td>
+                            <td style="border: none;"></td>
+                            <td style="border: none;"><br></td>
+                            <td style="border: none;"></td>
+                            <td style="border: none;"></td>
+                            <td style="border: none;"></td>
+                            <td style="border: none;"><br></td>
+                            <td style="border: none;"></td>
+                            <td style="border: none;"></td>
+                            <td style="border: none;"></td>
+                            <td style="border: none;"><br></td>
+                            <td style="border: none;"><br></td>
+                        </tr>
+                        <tr>
+                            <td style="padding:0px;color:#C00000;font-size:13px;font-weight:700;font-style:normal;text-decoration:none;font-family:Arial, sans-serif;text-align:center;vertical-align:middle;border:none;height:33.0pt;width:148pt;">ABONOS NO UBICADOS DE CLIENTES</td>
+                            <td style="color:#C00000; border: none;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;18,996.58</td>
+                            <td style="color:#C00000; border: none;"><br></td>
+                            <td style="color:#C00000; border: none;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- &nbsp;&nbsp;</td>
+                            <td style="color:#C00000; border: none;"><br></td>
+                            <td style="color:#C00000; border: none;"><br></td>
+                            <td style="color:#C00000; border: none;"><br></td>
+                            <td style="color:#C00000; border: none;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 3,290.02</td>
+                            <td style="color:#C00000; border: none;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 10,785.91</td>
+                            <td style="color:#C00000; border: none;"><br></td>
+                            <td style="color:#C00000; border: none;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 288.00</td>
+                            <td style="color:#C00000; border: none;"><br></td>
+                            <td style="color:#C00000; border: none;"><br></td>
+                            <td style="color:#C00000; border: none;"><br></td>
+                            <td style="color:#C00000; border: none;"><br></td>
+                            <td style="color:#C00000; border: none;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td style="color:#C00000; border: none;"><br></td>
+                            <td style="color:#C00000; border: none;"><br></td>
+                            <td style="color:#C00000; border: none;"><br></td>
+                            <td style="color:#C00000; border: none;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;33,360.51</td>
+                        </tr>
+                        <tr>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                            <td style="border:none;"><br></td>
+                        </tr>
+                        <tr>
+                            <td style="background:#E7E6E6;height:30.0pt;">DEUDA TOTAL DEDUCIDA</td>
+                            <td style="background:#A9D08E;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 514,199.61</td>
+                            <td style="background:#A9D08E;">&nbsp;$ &nbsp; &nbsp; &nbsp; 11,693.00</td>
+                            <td style="background:#A9D08E;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp;337,248.75</td>
+                            <td style="background:#A9D08E;"><br></td>
+                            <td style="background:#A9D08E;"><br></td>
+                            <td style="background:#A9D08E;"><br></td>
+                            <td style="background:#A9D08E;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp;211,676.42</td>
+                            <td style="background:#A9D08E;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;223,160.95</td>
+                            <td style="background:#A9D08E;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - &nbsp;&nbsp;</td>
+                            <td style="background:#A9D08E;">&nbsp;$ &nbsp; &nbsp; &nbsp; 57,843.06</td>
+                            <td style="background:#A9D08E;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;71,687.61</td>
+                            <td style="background:#A9D08E;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; 6,266.90</td>
+                            <td style="background:#A9D08E;">&nbsp;$ &nbsp; &nbsp; &nbsp; 25,143.06</td>
+                            <td style="background:#A9D08E;"><br></td>
+                            <td style="background:#A9D08E;">&nbsp;$ &nbsp; &nbsp; &nbsp; 10,281.26</td>
+                            <td style="background:#A9D08E;">&nbsp;$ &nbsp; &nbsp; &nbsp; 35,809.13</td>
+                            <td style="background:#A9D08E;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp;16,328.54</td>
+                            <td style="background:#A9D08E;"><br></td>
+                            <td style="background:#525252;">&nbsp;$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1,521,338.29</td>
+                        </tr>
+                    </tbody>
+                </table>
+                  </div>
+        </div>
+
+       
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/chart.js"></script>
+    <script src="./js/UpDate.js"></script>
+</body>
+</html>
