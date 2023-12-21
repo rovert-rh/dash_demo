@@ -123,3 +123,25 @@ function botonDatosClick(index) {
     activeChart = index;
     cargarDatos(jsonUrls[activeChart]);
 }
+ // Asignar eventos a los botones para cambiar los datos al hacer clic
+ document.getElementById('botonDatos1').addEventListener('click', function() {
+    activeChart = 0;
+    cargarDatos(jsonUrls[activeChart]);
+    document.getElementById('botonDatos1').classList.add('active');
+    document.getElementById('botonDatos2').classList.remove('active');
+    document.getElementById('botonDatos1').style.backgroundColor = '#007bff';
+    document.getElementById('botonDatos1').style.color = '#fff';
+    document.getElementById('botonDatos2').style.backgroundColor = '';
+    document.getElementById('botonDatos2').style.color = '';
+  });
+  
+  document.getElementById('botonDatos2').addEventListener('click', function() {
+    activeChart = 1;
+    cargarDatos(jsonUrls[activeChart]);
+    document.getElementById('botonDatos1').classList.remove('active');
+    document.getElementById('botonDatos2').classList.add('active');
+    document.getElementById('botonDatos1').style.backgroundColor = '';
+    document.getElementById('botonDatos1').style.color = '';
+    document.getElementById('botonDatos2').style.backgroundColor = '#007bff';
+    document.getElementById('botonDatos2').style.color = '#fff';
+  });
